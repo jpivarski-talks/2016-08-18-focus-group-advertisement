@@ -111,7 +111,12 @@
 \item[Target group:]<4-> physicists {\it performing data analysis,} meaning ``hands on the keyboard,'' as opposed to directing an analysis group. Typically graduate students and postdocs.
 \end{description}
 
-\uncover<5->{Results of this study (and other identical sessions) would contribute to a community whitepaper for the NSF's (SI)$^2$ project.}
+\uncover<5->{Results of this study (and other identical sessions) would contribute to a community whitepaper for the NSF's S$^2$I$^2$ project.}
+\end{frame}
+
+\begin{frame}{}
+\vspace{-0.15 cm}
+\mbox{\hspace{-1 cm}\includegraphics[width=1.2\linewidth]{whitepaper.png}}
 \end{frame}
 
 \begin{frame}{Workshops}
@@ -141,21 +146,21 @@ Matteo and Cristina have since ported their analysis (a {\it lot} of C++ code) t
 \end{frame}
 
 \begin{frame}{Transferring/translating data for ML/BD}
-\vspace{0.5 cm}
+\vspace{0.25 cm}
 \begin{block}{Many alternatives are being considered:}
 \begin{enumerate}
-\item Direct write from CMSSW to an ML/BD-friendly file format (no ROOT).
-\item Conversion of ROOT to an intermediate file format.
-\item Accessing ROOT in ML/BD applications: embedded or forked process.
+\item Writing from CMSSW to a ML/BD-friendly file format (i.e.\ no ROOT).
+\item Conversion of ROOT files to an intermediate file format.
+\item Directly accessing ROOT in ML/BD applications: embedded or forked ROOT process.
 \end{enumerate}
 \end{block}
 
 \vspace{-0.25 cm}
 \begin{block}{Presently available:}
 \begin{enumerate}
-\item \textcolor{darkblue}{c2numpy}: write (flat) Numpy files from C/C++.
-\item \textcolor{darkblue}{root2avro}: convert (complex) TTrees to Avro files.
-\item \textcolor{darkblue}{ScaROOT-Reader}: read (complex) TTrees in Scala and Spark, embedded and forked.
+\item \textcolor{darkblue}{c2numpy}: write (flat) Numpy files from C/C++ (no ROOT).
+\item \textcolor{darkblue}{root2avro}: convert (complex) ROOT TTrees to Avro files.
+\item \textcolor{darkblue}{ScaROOT-Reader}: read (complex) TTrees in Scala and Spark, embedded or forked.
 \end{enumerate}
 \end{block}
 
@@ -199,7 +204,7 @@ Three converters:
 \textcolor{darkblue}{ScaROOT-Reader}: \\
 \hspace{0.25 cm} direct ROOT $\to$ \\
 \hspace{0.25 cm} Scala, embedded \\
-\hspace{0.25 cm} and forked
+\hspace{0.25 cm} or forked
 \end{columns}
 \end{frame}
 
@@ -214,7 +219,7 @@ Three converters:
 \begin{block}{In-memory representation of abstract types}
 \begin{itemize}
 \item Standard numbers, strings, structs, arrays/maps (immutable).
-\item Not a file format: {\it in-memory} (but closely aligned to Parquet).
+\item Not a file format: {\it in-memory} \mbox{(but very similar to Parquet files).\hspace{-1 cm}}
 \item Major ML/BD packages are being rewritten to perform calculations on data in this form.
 \item Zero-copy sharing of data among C++, Python, R, JVM.
 \end{itemize}
@@ -321,7 +326,7 @@ with ROOT & JIT-compilation & 219 & \textcolor{red}{196} & \textcolor{red}{0.98}
 \item StrangeLoop conference, September 15--16.
 \item Chicago Hadoop User's Group (CHUG), October TBD.
 \end{itemize}
-\item Cross-cultural! Data scientists don't use plotting as much as they should\ldots
+\item Cross-cultural! Data scientists don't plot intermediate results as much as they should\ldots
 \end{itemize}
 \end{frame}
 
@@ -335,10 +340,10 @@ Data scientists use declarative (order-independent) queries to compute high-leve
 Example: breaking up SQL into work-plans, organizing data access to avoid CPU cache misses.
 
 \column{0.5\linewidth}
-Physicists perform more complex queries than can be (easily) expressed in SQL.
+Physicists perform more complex queries than can't be expressed in SQL (easily).
 
 \vspace{0.25 cm}
-But still, access patterns are fairly regular: rarely correlate data between events, filter-maximize-cut, match reco/gen particles\ldots
+But still, access patterns are fairly regular: almost never correlate data between events, filter-maximize-cut, match reco/gen particles\ldots
 \end{columns}
 
 \begin{uncoverenv}<2->
@@ -347,7 +352,7 @@ But still, access patterns are fairly regular: rarely correlate data between eve
 
 \begin{itemize}
 \item Introduce new, HEP-friendly primitives to declarative languages?
-\item I've discussed this with a senior Spark contributor and a lead Pandas developer.
+\item I've discussed this with Spark and Pandas developers.
 \begin{itemize}
 \item ``Our students want new structures to optimize.''
 \item ``Maybe a post-1.0 Pandas version should cover these.''
@@ -358,13 +363,17 @@ But still, access patterns are fairly regular: rarely correlate data between eve
 
 \begin{frame}{Building connections with ML/BD community}
 
+\vspace{0.5 cm}
 \begin{itemize}\setlength{\itemsep}{0.5 cm}
 \item KDD conference in San Francisco (yesterday).
-\item Promoting Histogrammar at StrangeLoop and CHUG to encourage contributions from industry.
-\item I may be contributing HEP-relevant code to Apache Arrow.
+\item Promoting Histogrammar at StrangeLoop and CHUG to encourage contributions from industry (this autumn).
+\item I might be contributing HEP-relevant code to Apache Arrow.
 \item Spark, Parquet, Arrow developer's forums.
 \item Conversations with some famous people (name dropping).
 \end{itemize}
+
+\vspace{1 cm}
+(Just being associated with the LHC opens doors\ldots)
 \end{frame}
 
 \begin{frame}{}
